@@ -1,0 +1,21 @@
+*.class
+*.log
+
+# Package Files #
+*.war
+*.ear
+
+#IDEA
+*.iml
+.idea/
+
+*.classpath
+*.project
+.settings/
+
+# sbt specific
+.cache/
+.history/
+.lib/
+dist/*
+target/
