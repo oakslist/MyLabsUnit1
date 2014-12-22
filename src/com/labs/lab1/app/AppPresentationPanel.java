@@ -23,6 +23,8 @@ public class AppPresentationPanel extends JPanel {
 	private static JTextArea editTextAreaBack = new JTextArea();
 	private static JTextArea editTextAreaKeyBack = new JTextArea();
 	
+	private static JLabel task = new JLabel("check the neccessary task");
+	
 	public AppPresentationPanel() {
 		Dimension size = getPreferredSize();
 		size.width = AppConstants.APP_PRESENTATION_AREA_WIDTH;
@@ -32,35 +34,33 @@ public class AppPresentationPanel extends JPanel {
 				
 	    ButtonGroup bGroup = new ButtonGroup();
 	    ActionListener radioAL = getRadioActionListener();
+	    task.setLocation(30, 30);
+	    task.setSize(300, 30);
 	    
-	    JLabel label = new JLabel("Task: create railway key");
-	    label.setLocation(30, 30);
-	    label.setSize(200, 30);
-	    
+	    //		 ============= start =============
+    
 	    JLabel label2 = new JLabel("Type a input text: ");
 	    label2.setLocation(30, 100);
 	    label2.setSize(100, 20);
 	    
 	    editTextArea.setLocation(130, 100);
 	    editTextArea.setSize(200, 20);
-//	    editTextArea.setBackground(Color.GRAY);
-//	    editTextArea.setForeground(Color.WHITE);
 	    
 	    JLabel label3 = new JLabel("Type a key: ");
 	    label3.setLocation(30, 130);
 	    label3.setSize(100, 20);
 	    
-//	    JTextArea editTextAreaKey = new JTextArea();
 	    editTextAreaKey.setLocation(130, 130);
 	    editTextAreaKey.setSize(200, 20);
 	    
-	    //	    	back
+	    //	 ============= end =============
+	    
+	    //	 ============= start back =============
 	    
 	    JLabel label2Back = new JLabel("Type a input text: ");
 	    label2Back.setLocation(30, 330);
 	    label2Back.setSize(100, 20);
 	    
-//	    JTextArea editTextAreaBack = new JTextArea();
 	    editTextAreaBack.setLocation(130, 330);
 	    editTextAreaBack.setSize(200, 20);
 	    
@@ -68,10 +68,9 @@ public class AppPresentationPanel extends JPanel {
 	    label3Back.setLocation(30, 360);
 	    label3Back.setSize(100, 20);
 	    
-//	    JTextArea editTextAreaKeyBack = new JTextArea();
 	    editTextAreaKeyBack.setLocation(130, 360);
 	    editTextAreaKeyBack.setSize(200, 20);
-//	    =======
+	    //   ============= end back =============	
 	    
 	    JButton	jButton = new JButton("Check!");
 	    jButton.setLocation(150, 200);
@@ -84,8 +83,9 @@ public class AppPresentationPanel extends JPanel {
 	        	int key = Integer.parseInt(editTextAreaKey.getText());
 //	        	editTextArea.setText("");
 //	        	editTextAreaKey.setText("");
-
-	            AppMessagesPanel.setAppLog(new OpenInterface().call1_1(inputText, key));
+	        	if(((JRadioButton)e.getSource()).getText() == "railway hedge") {
+	        		AppMessagesPanel.setAppLog(new OpenInterface().call1_1(inputText, key));
+		        }		        
     		}
 		});
 	    
@@ -107,7 +107,7 @@ public class AppPresentationPanel extends JPanel {
 	    
 	    super.add(jButton);
 	    super.add(jButtonBack);
-	    super.add(label);
+	    super.add(task);
 	    super.add(label2);
 	    super.add(editTextArea);
 	    super.add(label3);
@@ -117,11 +117,11 @@ public class AppPresentationPanel extends JPanel {
 	    super.add(label3Back);
 	    super.add(editTextAreaKeyBack);
 
-	    createJRadioButton("lab1_1", radioAL, bGroup, 350, 20);
-	    createJRadioButton("lab1_2", radioAL, bGroup, 350, 45);
-	    createJRadioButton("lab2_1", radioAL, bGroup, 350, 70);
-	    createJRadioButton("lab2_2", radioAL, bGroup, 350, 95);
-	    createJRadioButton("lab3", radioAL, bGroup, 350, 120);
+	    createJRadioButton("railway hedge", radioAL, bGroup, 350, 20);
+	    createJRadioButton("key phrase", radioAL, bGroup, 350, 45);
+	    createJRadioButton("addition method", radioAL, bGroup, 350, 70);
+	    createJRadioButton("multiplication method", radioAL, bGroup, 350, 95);
+	    createJRadioButton("digital signature", radioAL, bGroup, 350, 120);
 	    
 	}
 	
@@ -138,14 +138,30 @@ public class AppPresentationPanel extends JPanel {
 	private ActionListener getRadioActionListener() {
 		ActionListener aL = new  ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
-	        	String log = "was checked " + ((JRadioButton)e.getSource()).getText();
+	        	String log = "was checked " + ((JRadioButton)e.getSource()).getText() + "\nwaiting input data...";
 	            System.out.println(log);
 	            AppMessagesPanel.setAppLog(log);
 		        
-		        if(((JRadioButton)e.getSource()).getText() == "lab1_1") {
-        			        	
-		        }
-		        
+		        if(((JRadioButton)e.getSource()).getText() == "railway hedge") {
+		        	String output = "write a PHRASE and a NUMBER KEY";
+		        	task.setText(output);
+		        }		        
+		        if(((JRadioButton)e.getSource()).getText() == "key phrase") {
+		        	String output = "write a PHRASE and a KEY PHRASE";
+		        	task.setText(output);
+		        }		        
+		        if(((JRadioButton)e.getSource()).getText() == "addition method") {
+		        	String output = "write a PHRASE and a NUMBER KEY";
+		        	task.setText(output);
+		        }		        
+		        if(((JRadioButton)e.getSource()).getText() == "multiplication method") {
+		        	String output = "write a PHRASE and a NUMBER KEY";
+		        	task.setText(output);
+		        }		        
+		        if(((JRadioButton)e.getSource()).getText() == "digital signature") {
+		        	String output = "write a PHRASE, H0, p, q, and e values";
+		        	task.setText(output);
+		        }		        
 	        }
 	    };
 	    return aL;
