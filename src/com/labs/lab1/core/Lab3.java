@@ -2,29 +2,39 @@ package com.labs.lab1.core;
 
 public class Lab3 {
 	
-	public Lab3(String inputText, int p, int q, int e, int h0) {
+	public Lab3() {
+	}
+	
+	public String get(String inputText, int p, int q,  int e, int h0) {
+		System.out.println(inputText + "; " + p + "; " + q + "; " + e + "; " + h0);
+		String output = "";
 		int r = p * q;
 		int d = generateD(p, q, e);
 		
 		int m = getSurnameHash(inputText, p, q, h0);
 		int s = quickExp(m, d, r);
 		
-		System.out.println("inputText = " + inputText + "; hash h(M) = " + m + "; s = " + s);
-		System.out.println("signature d = " + d + "; e = " + e);
+		output += "inputText = " + inputText + "; hash h(M) = " + m + "; s = " + s + "\n";
+		output += "signature d = " + d + "; e = " + e + "\n";
 
-		System.out.println("Kopen  = (e, r) = (" + e + ", " + r + ")");
-		System.out.println("Ksecret (d, r) = (" + d + ", " + r + ")");
-		System.out.println();
-		System.out.println("to send: {" + inputText + ", " + s + "}");
-		System.out.println();
+		output += "Kopen  = (e, r) = (" + e + ", " + r + ")\n";
+		output += "Ksecret (d, r) = (" + d + ", " + r + ")\n";
+		output += "to send: {" + inputText + ", " + s + "}\n\n";
 		
-		
-		System.out.println("Client side:");
+		return output;
+	}
+	
+	public String getBack(String inputText, int p, int q,  int e, int h0, int s) {
+		System.out.println(inputText + "; " + p + "; " + q + "; " + e + "; " + h0);
+		String output = "";
+		int r = p * q;
 		
 		int m_client = getSurnameHash(inputText, p, q, h0);
-		System.out.println("client m = " + m_client);
+		output += "client m = " + m_client + "\n";
 		int s_client = quickExp(s, e, r);
-		System.out.println("S = " + s_client);
+		output += "S = " + s_client + "\n";
+		
+		return output;
 	}
 	
 	private int getSurnameHash(String surname, int p, int q, int h0) {

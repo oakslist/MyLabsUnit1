@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import com.labs.lab1.app.AppLab;
-import com.labs.lab1.core.OpenInterface;
 
 public class Main {
 
@@ -27,22 +26,24 @@ public class Main {
 		// keyNumber = in.nextInt();
 		// in.close();
 		
-		OpenInterface oi = new OpenInterface();
+//		OpenInterface oi = new OpenInterface();
 //		oi.call1_1();
-//		oi.call1_2();
+//		oi.call1_2("cryptography", "this");
+//		System.out.println(oi.call1_2("cryptography", "this"));
+//		System.out.println(oi.call1_2Back("rypcogrtphya", "this"));
 //		oi.call2_1();
 //		oi.call2_2();
 		
 		
 		
-		int p = 13;
-		int q = 17;
-		int e = 23;
-		int h0 = 10;
-		String inputText = "VARACHAI";
+//		int p = 13;
+//		int q = 17;
+//		int e = 23;
+//		int h0 = 10;
+//		String inputText = "VARACHAI";
 //		String inputText = "BDUJR";
 		
-		oi.call3(inputText, p, q, e, h0);
+//		oi.call3(inputText, p, q, e, h0);
 		
 	}
 
